@@ -1,0 +1,160 @@
+<div class="flex flex-col items-center justify-center gap-2 p-1 lg:p-10 w-full min-h-[100vh] overflow-hidden">
+    
+    <nav class="md:fixed md:top-5 p-[2px] rounded-3xl" aria-label="Tabs" role="tablist" aria-orientation="horizontal">
+        <button type="button" class="text-xl px-4 py-1 rounded-3xl inline-flex items-center gap-x-2 border-b-2 border-transparent whitespace-nowrap text-gray-500 hover:text-gray-800 focus:outline-hidden dark:text-neutral-400 dark:hover:text-gray-300 hs-tab-active:bg-blue-500 hover:hs-tab-active:bg-blue-700 transition hs-tab-active:text-white active" id="basic-tabs-item-1" aria-selected="true" data-hs-tab="#basic-tabs-1" aria-controls="basic-tabs-1" role="tab">
+            SignIn</button>
+        <button type="button" class="text-xl px-4 py-1 rounded-3xl inline-flex items-center gap-x-2 border-b-2 border-transparent whitespace-nowrap text-gray-500 hover:text-gray-800 focus:outline-hidden dark:text-neutral-400 dark:hover:text-gray-300 hs-tab-active:bg-blue-500 hover:hs-tab-active:bg-blue-700 transition hs-tab-active:text-white" id="basic-tabs-item-2" aria-selected="false" data-hs-tab="#basic-tabs-2" aria-controls="basic-tabs-2" role="tab">
+            SignUp</button>
+    </nav>
+
+    <div class="w-[95%] lg:w-[80%]">
+        
+        <!-- login Tab -->
+        <div id="basic-tabs-1" role="tabpanel" aria-labelledby="basic-tabs-item-1">
+            
+            <div class="flex justify-center w-full">
+                
+                <form [formGroup]="loginForm" (ngSubmit)="userLogin()" class="flex flex-col gap-5 items-center rounded-3xl p-4 md:p-8 w-full">
+
+                    <!-- login => email input box -->
+                    <div class="relative w-full">
+                        <input formControlName="Email" type="text" class="w-full peer p-4 block bg-black/10 border-gray-200 rounded-xl sm:text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#1C2029] dark:border-neutral-[#1C2029] dark:text-neutral-400 dark:focus:ring-neutral-600 focus:pt-6 focus:pb-2 not-placeholder-shown:pt-6 not-placeholder-shown:pb-2 autofill:pt-6 autofill:pb-2" 
+                        placeholder="email">
+                        <label for="email" class="absolute top-0 start-0 p-4 h-full sm:text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent  origin-[0_0] dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:scale-90 peer-focus:translate-x-0.5 peer-focus:-translate-y-1.5 peer-focus:text-blue-700 peer-not-placeholder-shown:scale-90 peer-not-placeholder-shown:translate-x-0.5 peer-not-placeholder-shown:-translate-y-1.5 peer-not-placeholder-shown:text-blue-800 dark:text-neutral-500">
+                            E-mail
+                        </label>
+                    </div>
+
+                    <!-- login => password input box -->
+                    <div class="relative w-full">
+                        <input formControlName="Password" type="password" class="w-full peer p-4 block bg-black/10 border-gray-200 rounded-xl sm:text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#1C2029] dark:border-neutral-[#1C2029] dark:text-neutral-400 dark:focus:ring-neutral-600 focus:pt-6 focus:pb-2 not-placeholder-shown:pt-6 not-placeholder-shown:pb-2 autofill:pt-6 autofill:pb-2" 
+                        placeholder="Password">
+                        <label for="password" class="absolute top-0 start-0 p-4 h-full sm:text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent  origin-[0_0] dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:scale-90 peer-focus:translate-x-0.5 peer-focus:-translate-y-1.5 peer-focus:text-blue-700 peer-not-placeholder-shown:scale-90 peer-not-placeholder-shown:translate-x-0.5 peer-not-placeholder-shown:-translate-y-1.5 peer-not-placeholder-shown:text-blue-800 dark:text-neutral-500">
+                            Passsword
+                        </label>
+                        <button type="button" class="absolute right-0 top-[50%] translate-x-[-50%] translate-y-[-50%]">
+                            <svg id="show-password-icon" xmlns="http://www.w3.org/2000/svg" width="25" fill="currentColor" class="bi bi-eye-slash text-blue-500" viewBox="0 0 16 16">
+                                <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"/><path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829"/><path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <button type="button" routerLink="/forgot-password" class="hover:underline text-blue-500">Forgot password?</button>
+
+                    <!-- login => submit button -->
+                    <button type="submit" class="submit-button">Login</button>
+
+                </form>
+            </div>
+
+        </div>
+
+        <!-- Register tab -->
+        <div id="basic-tabs-2" class="hidden" role="tabpanel" aria-labelledby="basic-tabs-item-2">
+            
+            <div class="flex justify-center w-full">
+                
+                <form [formGroup]="registerForm" (ngSubmit)="userRegister()" class="flex flex-col gap-5 items-center rounded-3xl p-4 md:p-8 w-full">
+
+                    <!-- Full name input box -->
+                    <div class="relative w-full">
+                        <input formControlName="FullName" type="text" class="w-full peer p-4 block bg-black/10 border-gray-200 rounded-xl sm:text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#1C2029] dark:border-neutral-[#1C2029] dark:text-neutral-400 dark:focus:ring-neutral-600 focus:pt-6 focus:pb-2 not-placeholder-shown:pt-6 not-placeholder-shown:pb-2 autofill:pt-6 autofill:pb-2" 
+                        placeholder="Full Name">
+                        <label for="fullName" class="absolute top-0 start-0 p-4 h-full sm:text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent origin-[0_0] dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:scale-90 peer-focus:translate-x-0.5 peer-focus:-translate-y-1.5 peer-focus:text-blue-700 peer-not-placeholder-shown:scale-90 peer-not-placeholder-shown:translate-x-0.5 peer-not-placeholder-shown:-translate-y-1.5 peer-not-placeholder-shown:text-blue-800 dark:text-neutral-500">
+                            Full Name
+                        </label>
+                    </div>
+
+                    <!-- First name and last name input box -->
+                    <div class="flex flex-col md:flex-row gap-5 w-full">
+                        
+                        <div class="relative w-full">
+                            <input formControlName="FirstName" type="text" class="w-full peer p-4 block bg-black/10 border-gray-200 rounded-xl sm:text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#1C2029] dark:border-neutral-[#1C2029] dark:text-neutral-400 dark:focus:ring-neutral-600 focus:pt-6 focus:pb-2 not-placeholder-shown:pt-6 not-placeholder-shown:pb-2 autofill:pt-6 autofill:pb-2" 
+                            placeholder="First Name">
+                            <label for="firstName" class="absolute top-0 start-0 p-4 h-full sm:text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent origin-[0_0] dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:scale-90 peer-focus:translate-x-0.5 peer-focus:-translate-y-1.5 peer-focus:text-blue-700 peer-not-placeholder-shown:scale-90 peer-not-placeholder-shown:translate-x-0.5 peer-not-placeholder-shown:-translate-y-1.5 peer-not-placeholder-shown:text-blue-800 dark:text-neutral-500">
+                                First Name
+                            </label>
+                        </div>
+                        
+                        <!-- last name input box -->
+                        <div class="relative w-full">
+                            <input formControlName="LastName" type="text" class="w-full peer p-4 block bg-black/10 border-gray-200 rounded-xl sm:text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#1C2029] dark:border-neutral-[#1C2029] dark:text-neutral-400 dark:focus:ring-neutral-600 focus:pt-6 focus:pb-2 not-placeholder-shown:pt-6 not-placeholder-shown:pb-2 autofill:pt-6 autofill:pb-2" 
+                            placeholder="Last Name">
+                            <label for="lastName" class="absolute top-0 start-0 p-4 h-full sm:text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent origin-[0_0] dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:scale-90 peer-focus:translate-x-0.5 peer-focus:-translate-y-1.5 peer-focus:text-blue-700 peer-not-placeholder-shown:scale-90 peer-not-placeholder-shown:translate-x-0.5 peer-not-placeholder-shown:-translate-y-1.5 peer-not-placeholder-shown:text-blue-800 dark:text-neutral-500">
+                                Last Name
+                            </label>
+                        </div>
+                        
+                        <!-- Select gender block -->
+                        <select formControlName="Gender" class="py-3 px-4 pe-9 block bg-black/10 w-full border-gray-200 rounded-xl text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#1C2029] dark:border-neutral-[#1C2029] dark:text-neutral-200 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                            <option value="">Gender</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                            <option>Others</option>
+                        </select>
+
+                    </div>
+                    
+                    <!-- email input box -->
+                    <div class="relative w-full">
+                        <input formControlName="Email" type="text" class="w-full peer p-4 block bg-black/10 border-gray-200 rounded-xl sm:text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#1C2029] dark:border-neutral-[#1C2029] dark:text-neutral-400 dark:focus:ring-neutral-600 focus:pt-6 focus:pb-2 not-placeholder-shown:pt-6 not-placeholder-shown:pb-2 autofill:pt-6 autofill:pb-2" 
+                        placeholder="email">
+                        <label for="email" class="absolute top-0 start-0 p-4 h-full sm:text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent  origin-[0_0] dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:scale-90 peer-focus:translate-x-0.5 peer-focus:-translate-y-1.5 peer-focus:text-blue-700 peer-not-placeholder-shown:scale-90 peer-not-placeholder-shown:translate-x-0.5 peer-not-placeholder-shown:-translate-y-1.5 peer-not-placeholder-shown:text-blue-800 dark:text-neutral-500">
+                            E-mail
+                        </label>
+                    </div>
+
+                    <!-- mobile number input box -->
+                    <div class="relative w-full">
+                        <input formControlName="MobileNumber" type="text" class="w-full peer p-4 block bg-black/10 border-gray-200 rounded-xl sm:text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#1C2029] dark:border-neutral-[#1C2029] dark:text-neutral-400 dark:focus:ring-neutral-600 focus:pt-6 focus:pb-2 not-placeholder-shown:pt-6 not-placeholder-shown:pb-2 autofill:pt-6 autofill:pb-2" 
+                        placeholder="Mobile Number">
+                        <label for="mobileNumber" class="absolute top-0 start-0 p-4 h-full sm:text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent  origin-[0_0] dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:scale-90 peer-focus:translate-x-0.5 peer-focus:-translate-y-1.5 peer-focus:text-blue-700 peer-not-placeholder-shown:scale-90 peer-not-placeholder-shown:translate-x-0.5 peer-not-placeholder-shown:-translate-y-1.5 peer-not-placeholder-shown:text-blue-800 dark:text-neutral-500">
+                            Mobile Number
+                        </label>
+                    </div>
+
+                    <!-- Password input box -->
+                    <div class="relative w-full">
+                        <input formControlName="Password" type="password" class="w-full peer p-4 block bg-black/10 border-gray-200 rounded-xl sm:text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#1C2029] dark:border-neutral-[#1C2029] dark:text-neutral-400 dark:focus:ring-neutral-600 focus:pt-6 focus:pb-2 not-placeholder-shown:pt-6 not-placeholder-shown:pb-2 autofill:pt-6 autofill:pb-2" 
+                        placeholder="Password">
+                        <label for="password" class="absolute top-0 start-0 p-4 h-full sm:text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent  origin-[0_0] dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:scale-90 peer-focus:translate-x-0.5 peer-focus:-translate-y-1.5 peer-focus:text-blue-700 peer-not-placeholder-shown:scale-90 peer-not-placeholder-shown:translate-x-0.5 peer-not-placeholder-shown:-translate-y-1.5 peer-not-placeholder-shown:text-blue-800 dark:text-neutral-500">
+                            Passsword
+                        </label>
+                        <button type="button" class="absolute right-0 top-[50%] translate-x-[-50%] translate-y-[-50%]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" fill="currentColor" class="bi bi-eye-slash text-blue-500" viewBox="0 0 16 16">
+                                <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"/><path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829"/><path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Confirm password input box -->
+                    <div class="relative w-full">
+                        <input formControlName="ConfirmPassword" type="password" id="confirmPassword" class="w-full peer p-4 block bg-black/10     border-gray-200 rounded-xl sm:text-sm placeholder:text-transparent focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#1C2029] dark:border-neutral-[#1C2029] dark:text-neutral-400 dark:focus:ring-neutral-600 focus:pt-6 focus:pb-2 not-placeholder-shown:pt-6 not-placeholder-shown:pb-2 autofill:pt-6 autofill:pb-2" 
+                        placeholder="Confirm Password">
+                        <label for="confirmPassword" class="absolute top-0 start-0 p-4 h-full sm:text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent  origin-[0_0] dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:scale-90 peer-focus:translate-x-0.5 peer-focus:-translate-y-1.5 peer-focus:text-blue-700 peer-not-placeholder-shown:scale-90 peer-not-placeholder-shown:translate-x-0.5 peer-not-placeholder-shown:-translate-y-1.5 peer-not-placeholder-shown:text-blue-800 dark:text-neutral-500">
+                            Confirm Password
+                        </label>
+                        <button type="button" class="absolute right-0 top-[50%] translate-x-[-50%] translate-y-[-50%]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" fill="currentColor" class="bi bi-eye-slash text-blue-500" viewBox="0 0 16 16">
+                                <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"/><path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829"/><path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- terms and conditions checkbox -->
+                    <!-- <div>
+                        <input class="w-4 h-4" type="checkbox" name="agree" value="agree">
+                        <span class="text-white" for="agree">I agree to <button routerLink="'./login/login.component.html'" class="text-blue-800 hover:underline">Terms & conditions</button></span>
+                    </div> -->
+
+                <!-- register => submit button -->
+                    <button type="submit" class="submit-button">Register</button>
+
+                </form>
+            </div>
+
+        </div>
+    
+    </div>
+
+</div>

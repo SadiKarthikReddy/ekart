@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@import "preline/variants.css";
+@source "../node_modules/preline/dist/*.js";
+
+/* Defaults hover styles on all devices */
+@custom-variant hover (&:hover);
+
+@layer components{
+    .nav-button{
+        @apply font-medium text-gray-600 hover:text-blue-500 focus:outline-hidden focus:text-gray-400 dark:text-neutral-400 transition;
+    }
+
+    .profile-input-block{
+        @apply flex flex-col gap-2 md:gap-0 md:flex-row md:items-center;
+    }
+
+    .profile-label{
+        @apply dark:text-white md:w-80;
+    }
+
+    .profile-input{
+        @apply w-full px-3 py-2 dark:text-white bg-gray-200 dark:bg-gray-700 rounded-xl border-gray-300 dark:border-gray-600 border-1 disabled:text-gray-500 dark:disabled:text-gray-400;
+    }
+
+    .submit-button{
+        @apply text-2xl bg-transparent text-blue-500 border border-blue-700 px-4 py-1 rounded-3xl hover:text-white hover:bg-blue-700 transition;
+    }
+}
